@@ -1161,7 +1161,23 @@
     }
 
     .welcome .music-button {
+      position: relative;
       vertical-align: middle;
+    }
+
+    .welcome .music-button svg.music-caption {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 112px;
+      height: 76px;
+      transform: translateX(-50%);
+      pointer-events: none;
+      font: 13px var(--display);
+    }
+
+    .music-button[aria-pressed="true"] .music-caption {
+      visibility: hidden;
     }
 
     .welcome .music-status {
@@ -1330,6 +1346,12 @@
             </svg>
             <svg class="music-pause" viewBox="0 0 16 16" aria-hidden="true">
               <path d="M4 3h3v10H4zm5 0h3v10H9z" />
+            </svg>
+            <svg class="music-caption" viewBox="0 0 112 76" aria-hidden="true">
+              <defs>
+                <path id="music-caption-curve" d="M 9 43 C 30 78 82 78 103 43" />
+              </defs>
+              <text text-anchor="middle"><textPath href="#music-caption-curve" startOffset="50%">включите музыку</textPath></text>
             </svg>
           </button>
           <p class="music-status" id="music-status" role="status"></p>
